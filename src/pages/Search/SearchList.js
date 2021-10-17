@@ -1,13 +1,17 @@
-import React from 'react';
-import Card from './Card';
-
-const SearchList =({ filteredPersons }) => {
-  const filtered = filteredPersons.map(person =>  <Card key={person.id} person={person} />); 
+import React from "react";
+import Card from "./Card";
+import { Grid } from "@mui/material";
+import "../../sampleData/books.json";
+const SearchList = ({ books }) => {
   return (
-    <div>
-      {filtered}
-    </div>
+    <Grid container item xs={12}>
+      {books &&
+        books.length > 0 &&
+        books.map((book) => {
+          return <Card key={book.isbn} book={book} />;
+        })}
+    </Grid>
   );
-}
+};
 
 export default SearchList;

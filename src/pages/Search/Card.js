@@ -1,18 +1,31 @@
-import React from 'react';
-import {  Link } from "react-router-dom";
+import { Typography, Grid, Paper } from "@mui/material";
+import React from "react";
+import { Link } from "react-router-dom";
 
-
-function Card({ person }) {
-    return (
-        <div className="tc bg-white dib br3 pa3 ma2 grow bw2 shadow-5">
-            
-            <img className="" alt={person.name} src={process.env.PUBLIC_URL + person.imgPath} />
-            <div>
-                <Link to={`/book/${person.id}`}>{person.title}</Link>
-                <p>{person.author}</p>
-            </div>
-        </div>
-    );
+function Card({ book }) {
+  return (
+    <>
+      {book && (
+        <Grid item xs={3}>
+          <Paper
+            sx={{
+              height: 100,
+              width: 200,
+              mt: 10,
+              ml: 15,
+              border: "1px solid grey",
+              textAlign: "center",
+            }}
+          >
+            <Typography>{book.author}</Typography>
+            <Link to={`/book/${book.isbn}`}>
+              <Typography>{book.isbn}</Typography>
+            </Link>
+          </Paper>
+        </Grid>
+      )}
+    </>
+  );
 }
 
 export default Card;

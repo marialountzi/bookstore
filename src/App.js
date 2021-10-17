@@ -9,8 +9,8 @@ import { Grid } from "@mui/material";
 const App = () => {
   return (
     <Grid>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Route exact path="/" component={SearchBook} />
         <Route exact path="/book/:ID" component={ViewBook} />
         <Route exact path="/create" component={CreateBook} />
